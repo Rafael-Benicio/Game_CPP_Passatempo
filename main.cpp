@@ -14,13 +14,19 @@
 #define windowRow 15
 #define rect 8
 
-
 // Criar Char
-Player char1(imgs[0],20,0,2);
-Player char2(imgs[0],0,0,5);
+Player char1(imgs[0],0,0,2);
+Player char2(imgs[0],20,0,5);
+Player char3(imgs[0],0,20,5);
 
-// Criar Tile
+// Cria array de colisão
+Box colisionArray[3]={
+     char1.colision.point,
+     char2.colision.point,
+     char3.colision.point,
+};
 
+int colisionArrayLength=sizeof(colisionArray)/16;
 
 // Camera principal
 Camera2D camera(4,4,windowCol*rect,windowRow*rect);
@@ -28,10 +34,14 @@ Camera2D camera(4,4,windowCol*rect,windowRow*rect);
 // Functions ----------------------------------------------------
 
 // Main functions game
-void Update(sf::RenderWindow *janela);
+// Checa os eventos primeiro
 void Eventos(sf::Event *event);
-void Draw(sf::RenderWindow *janela);
-void DrawTile(sf::RenderWindow *janela);
+// faz as atualizaçõs
+void Update(sf::RenderWindow *janela);
+// Desenhas os tiles
+void Draw_pri2(sf::RenderWindow *janela);
+// Desenha os player
+void Draw_pri1(sf::RenderWindow *janela);
 
 int main(){
      // Configura a tela
@@ -49,8 +59,8 @@ int main(){
           }
           Update(&window);
           // Draw
-          DrawTile(&window);
-          Draw(&window);
+          Draw_pri2(&window);
+          Draw_pri1(&window);
           // Apresenta o conteudo desenhado
           window.display();
      }
@@ -69,21 +79,27 @@ void Update(sf::RenderWindow *janela){
      // Define onde a camera vai ficar
      janela->setView(camera.mainCamera());
      // Updates
+
      char1.updateElements();
      char2.updateElements();
+     char3.updateElements();
 
-     if (char1.colision.colide(char2.colision.point)){
-          char1.vector_move.x*=-1;
-          char1.vector_move.y*=-1;
-     }
+     colisionArray[0]=char1.colision.point;
+     colisionArray[1]=char2.colision.point;
+     colisionArray[2]=char3.colision.point;
+     
+
+     char1.hardColision(colisionArray,colisionArrayLength);
 }
 
-void DrawTile(sf::RenderWindow *janela){
+
+void Draw_pri2(sf::RenderWindow *janela){
      
 };
 
-void Draw(sf::RenderWindow *janela){
+void Draw_pri1(sf::RenderWindow *janela){
      janela->draw(char1.drawSP());
      janela->draw(char2.drawSP());
+     janela->draw(char3.drawSP());
 
 };

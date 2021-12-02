@@ -4,6 +4,18 @@
 
 class Char{
 	public:
+		// Variaveis----------------
+		// Instancia a Textura
+		sf::Texture texture;
+		// Instancia Sprite
+		sf::Sprite sprite;
+		// Corresponde a posição do objeto
+		Position position;
+		// vetor de direção de aceleração
+		Position vector_move;
+
+		Proportion proportion;
+
 		// Class de Aninhamento-----
 		class Colision2D{
 			public:
@@ -22,7 +34,7 @@ class Char{
 						point.bottomY>pt.topY
 						)?true:false;
 				};
-
+				// Aumenta e diminue o tamanho da caixa de colisão
 				void setMargins(float x,float y,float w,float h){
 					margin.topY=x;
 					margin.topX=y;
@@ -37,16 +49,10 @@ class Char{
 						point.bottomX=Ow+margin.bottomX;
 						point.bottomY=Oh+margin.bottomY;
 				};
+
+
 		};
 
-		// Variaveis----------------
-		// Instancia a Textura
-		sf::Texture texture;
-		// Instancia Sprite
-		sf::Sprite sprite;
-		// Corresponde a posição do objeto
-		Position position;
-		Proportion proportion;
 		// Funções------------------
 		// Retorna sprites
 		sf::Sprite drawSP();
