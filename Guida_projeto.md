@@ -1,1 +1,0 @@
-# Criar uma classe que contenha os vetores de posição de um objeto
