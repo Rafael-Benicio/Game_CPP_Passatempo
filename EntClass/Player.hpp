@@ -31,15 +31,16 @@ void Player::eventButtons(sf::Event *event){
 }
 
 void Player::hardColision(Box *boxArray, int boxArrayLength){
+
     for (int i=0;i<boxArrayLength;i++){
-        if (colision.colide(boxArray[i]) &&
-        	colision.point.topX!=boxArray[i].topX &&
-        	colision.point.topY!=boxArray[i].topY &&
-        	colision.point.bottomX!=boxArray[i].bottomX &&
-        	colision.point.bottomY!=boxArray[i].bottomY 
-        ){
+        if (colision.point.topX==boxArray[i].topX &&  
+        	colision.point.topY==boxArray[i].topY)
+        {
+        	continue;
+        }else if (colision.colide(boxArray[i])){
             vector_move.x*=-1;
 			vector_move.y*=-1;
+			break;
         }
     }
 }
