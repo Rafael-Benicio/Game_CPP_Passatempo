@@ -1,5 +1,4 @@
 # include <iostream>
-# include <map>
 # include <SFML/Graphics.hpp>
 # include "class/Struct_Box.hpp"
 # include "class/Struct_Position.hpp"
@@ -15,7 +14,7 @@
 #define rect 8
 
 // Criar Char
-Player char1(imgs[0],0,0,2);
+Player char1(imgs[0],0,0,1);
 Player char2(imgs[0],20,0,5);
 Player char3(imgs[0],0,20,5);
 
@@ -47,7 +46,7 @@ int main(){
      // Configura a tela
      sf::RenderWindow window(sf::VideoMode(720, 480), "Passa tempo");
      window.setFramerateLimit(60);
-
+     char1.setGravity(true);
      // Loop do jogo
      while (window.isOpen()){
           // Variavel contendo os Eventos
@@ -80,16 +79,16 @@ void Update(sf::RenderWindow *janela){
      janela->setView(camera.mainCamera());
      // Updates
 
-     char1.updateElements();
-     char2.updateElements();
-     char3.updateElements();
+     char1.processElements();
+     char2.processElements();
+     char3.processElements();
 
      colisionArray[0]=char1.colision.point;
      colisionArray[1]=char2.colision.point;
      colisionArray[2]=char3.colision.point;
      
-
      char1.hardColision(colisionArray,colisionArrayLength);
+
 }
 
 

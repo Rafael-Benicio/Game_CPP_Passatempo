@@ -49,8 +49,6 @@ class Char{
 						point.bottomX=Ow+margin.bottomX;
 						point.bottomY=Oh+margin.bottomY;
 				};
-
-
 		};
 
 		// Funções------------------
