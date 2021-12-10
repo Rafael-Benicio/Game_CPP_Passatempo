@@ -5,6 +5,7 @@
 # include "class/Struct_Proportion.hpp"
 # include "class/Camera2D.hpp"
 # include "class/Char.hpp"
+# include "class/RigidBody.hpp"
 # include "EntClass/Player.hpp"
 # include "EntClass/Tile.hpp"
 # include "vars/imgs.hpp"
@@ -15,8 +16,8 @@
 
 // Criar Char
 Player char1(imgs[0],0,0,1);
-Player char2(imgs[0],20,0,5);
-Player char3(imgs[0],0,20,5);
+RigidBody char2(imgs[0],8,20);
+RigidBody char3(imgs[0],0,20);
 
 // Cria array de colisão
 Box colisionArray[3]={
@@ -46,7 +47,6 @@ int main(){
      // Configura a tela
      sf::RenderWindow window(sf::VideoMode(720, 480), "Passa tempo");
      window.setFramerateLimit(60);
-     char1.setGravity(true);
      // Loop do jogo
      while (window.isOpen()){
           // Variavel contendo os Eventos

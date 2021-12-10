@@ -1,43 +1,38 @@
-#ifndef PLAYER_HPP_INCLUDED
-#define PLAYER_HPP_INCLUDED
+#ifndef RIGIDBODY_HPP_INCLUDED
+#define RIGIDBODY_HPP_INCLUDED
 
-class Player:public Char{
+class RigidBody:public Char{
 	public:
 		// Variavel------------------------------
-		float aceleration;
+		// Se vai ser capaz de colidir
+		bool colideON;
+
 		Colision2D colision;
 		// Function -----------------------------
-		// Butões apertados e reações
-		void eventButtons(sf::Event *event);
 		// Checa se ouve colisão dura
 		void hardColision(Box *boxArray, int boxArrayLength);
 		// Valores que seram atualizando internamente a cada chamada
 		void processElements();
+		// Adiministra o deslocamento do objeto
+		inline void MoveAndSlide(float acelerationX,float acelerationY);
 		// Constructor --------------------------
 		// Instancia a imagen, a posição e a velocidade
-		Player(std::string texture_path,float posX,float posY,float velocity);
-
+		RigidBody(std::string texture_path,float posX,float posY);
+		// Instancia com posição
+		RigidBody(float posX,float posY);
+		// Instancia vazia
+		RigidBody();
 };
-// Butões apertados e reações
-void Player::eventButtons(sf::Event *event){
-	vector_move.x=0;
-	vector_move.y=0;
-	if (event->type==sf::Event::KeyPressed){
-        if (event->key.code==sf::Keyboard::Left ) vector_move.x=-1;
-		if (event->key.code==sf::Keyboard::Right ) vector_move.x=1;
-        if (event->key.code==sf::Keyboard::Up ) vector_move.y=-1;
-        if (event->key.code==sf::Keyboard::Down ) vector_move.y=1;
-    } 
-}
+
 // Checa se ouve colisão dura
-void Player::hardColision(Box *boxArray, int boxArrayLength){
+void RigidBody::hardColision(Box *boxArray, int boxArrayLength){
 
     for (int i=0;i<boxArrayLength;i++){
         if (colision.point.topX==boxArray[i].topX &&  
         	colision.point.topY==boxArray[i].topY)
         {
         	continue;
-        }else if (colision.colide(boxArray[i])){
+        }else if (colision.colide(boxArray[i]) && colideON){
         	float resetPositionX=0;
         	float resetPositionY=0;
 			
@@ -53,19 +48,36 @@ void Player::hardColision(Box *boxArray, int boxArrayLength){
 				resetPositionY=(Cs>Bs)?Cs*-1:Bs;
 
 			setPosition((position.x+resetPositionX),(position.y+resetPositionY));
+
+			break;
         }
     }
 }
 // Valores que seram atualizando internamente a cada chamada
-void Player::processElements(){
-	setPosition(position.x+aceleration*vector_move.x,position.y+aceleration*vector_move.y);
+void RigidBody::processElements(){
 	colision.setPositionColide(position.x,position.y,position.x+proportion.width,position.y+proportion.height);
 }
+
+// Adiministra o deslocamento do objeto
+inline void::RigidBody::MoveAndSlide(float acelerationX,float acelerationY){
+	setPosition(position.x+acelerationX,acelerationY);
+}
+
 // Instancia a imagen, a posição e a velocidade
-Player::Player(std::string texture_path,float posX,float posY,float velocity){
+RigidBody::RigidBody(std::string texture_path,float posX,float posY){
 	setSpriteTexture(texture_path);
 	setPosition(posX,posY);
-	aceleration=velocity;
+	colideON=true;
+}
+// Instancia a imagen, a posição e a velocidade
+RigidBody::RigidBody(float posX,float posY){
+	setPosition(posX,posY);
+	colideON=false;
+}
+// Instancia vazia
+RigidBody::RigidBody(){
+	setPosition(0,0);
+	colideON=false;
 }
 
 
