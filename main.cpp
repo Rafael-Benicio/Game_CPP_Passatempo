@@ -17,12 +17,12 @@
 
 // Criar Char
 Player char1(imgs[0],8,0,1);
-RigidBody char2(imgs[1],8*1,20);
-RigidBody char3(imgs[1],8*2,20);
-RigidBody char4(imgs[1],8*3,20);
-RigidBody char5(imgs[1],8*4,20);
-RigidBody char6(imgs[1],8*5,20);
-RigidBody char7(imgs[1],8*6,20);
+RigidBody char2(8*1,20);
+RigidBody char3(8*2,20);
+RigidBody char4(8*3,20);
+RigidBody char5(8*4,20);
+RigidBody char6(8*5,20);
+RigidBody char7(8*6,20);
 
 // Cria array de colisão
 Box colisionArray[7]={
@@ -125,12 +125,12 @@ void Update(sf::RenderWindow *janela){
 
 
 void Draw_pri2(sf::RenderWindow *janela){
-     janela->draw(char2.sprite.drawSP());
-     janela->draw(char3.sprite.drawSP());
-     janela->draw(char4.sprite.drawSP());
-     janela->draw(char5.sprite.drawSP());
-     janela->draw(char6.sprite.drawSP());
-     janela->draw(char7.sprite.drawSP());
+     // janela->draw(char2.sprite.drawSP());
+     // janela->draw(char3.sprite.drawSP());
+     // janela->draw(char4.sprite.drawSP());
+     // janela->draw(char5.sprite.drawSP());
+     // janela->draw(char6.sprite.drawSP());
+     // janela->draw(char7.sprite.drawSP());
 };
 
 void Draw_pri1(sf::RenderWindow *janela){
