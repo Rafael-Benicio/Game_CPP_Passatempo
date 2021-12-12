@@ -1,7 +1,7 @@
 #ifndef PLAYER_HPP_INCLUDED
 #define PLAYER_HPP_INCLUDED
 
-class Player:public Char{
+class Player:public Node2D{
 	public:
 		// Variavel------------------------------
 		float aceleration;

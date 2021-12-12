@@ -3,7 +3,7 @@
 
 
 
-class Colision2D:public Char{
+class Colision2D:public Node2D{
 	public:
 		// Variavies---------------------------------------
 		// Posição global

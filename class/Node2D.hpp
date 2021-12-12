@@ -1,8 +1,8 @@
-#ifndef CHAR_HPP_INCLUDED
-#define CHAR_HPP_INCLUDED
+#ifndef NODE2D_HPP_INCLUDED
+#define NODE2D_HPP_INCLUDED
 
 
-class Char{
+class Node2D{
 	public:
 		// Variaveis----------------
 		// Instancia a Textura
@@ -30,29 +30,29 @@ class Char{
 };
 
 // Chama pra desenhar
-inline sf::Sprite Char::drawSP(){ 
+inline sf::Sprite Node2D::drawSP(){ 
 	return sprite; 
 }
 
 // Posição do player
-inline sf::Vector2f Char::getPositionCenter(){ 
+inline sf::Vector2f Node2D::getPositionCenter(){ 
 	return sf::Vector2f(position.x,position.y);
 }
 
 // Configura a posição do sprite
-void Char::setPosition(int x,int y){
+void Node2D::setPosition(int x,int y){
 	position.x=x;
 	position.y=y;
 	sprite.setPosition(position.x,position.y); 
 }
 
 // Configura area que ira ser mostrada
-inline void Char::setShowArea(int x,int y,int w,int h){ 
+inline void Node2D::setShowArea(int x,int y,int w,int h){ 
 	sprite.setTextureRect(sf::IntRect(x,y,w,h)); 
 }
 
 // Configura o sprite e a textura
-void Char::setSpriteTexture(std::string texture_path){
+void Node2D::setSpriteTexture(std::string texture_path){
 	// Carrega a textura
 	texture.loadFromFile(texture_path);
 	// Coloca a testura no sprite

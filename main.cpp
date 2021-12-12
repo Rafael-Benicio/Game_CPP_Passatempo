@@ -4,7 +4,7 @@
 # include "class/Struct_Position.hpp"
 # include "class/Struct_Proportion.hpp"
 # include "class/Camera2D.hpp"
-# include "class/Char.hpp"
+# include "class/Node2D.hpp"
 # include "class/Colision.hpp"
 # include "class/RigidBody.hpp"
 # include "EntClass/Player.hpp"

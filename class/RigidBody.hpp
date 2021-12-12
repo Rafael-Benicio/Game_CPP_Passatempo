@@ -1,7 +1,7 @@
 #ifndef RIGIDBODY_HPP_INCLUDED
 #define RIGIDBODY_HPP_INCLUDED
 
-class RigidBody:public Char{
+class RigidBody:public Node2D{
 	public:
 		// Variavel------------------------------
 		// Se vai ser capaz de colidir
