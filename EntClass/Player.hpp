@@ -5,7 +5,11 @@ class Player:public Node2D{
 	public:
 		// Variavel------------------------------
 		float aceleration;
+		Position vector_move;
+		// Cria o rentangulo de colisão
 		Colision2D colision;
+		// Criar o sprite
+		Char sprite;
 		// Function -----------------------------
 		// Butões apertados e reações
 		void eventButtons(sf::Event *event);
@@ -64,7 +68,7 @@ void Player::processElements(){
 }
 // Instancia a imagen, a posição e a velocidade
 Player::Player(std::string texture_path,float posX,float posY,float velocity){
-	setSpriteTexture(texture_path);
+	sprite.setSpriteTexture(texture_path);
 	setPosition(posX,posY);
 	aceleration=velocity;
 }	

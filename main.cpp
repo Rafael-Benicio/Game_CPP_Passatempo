@@ -5,6 +5,7 @@
 # include "class/Struct_Proportion.hpp"
 # include "class/Camera2D.hpp"
 # include "class/Node2D.hpp"
+# include "class/Char.hpp"
 # include "class/Colision.hpp"
 # include "class/RigidBody.hpp"
 # include "EntClass/Player.hpp"
@@ -119,12 +120,12 @@ void Draw_pri2(sf::RenderWindow *janela){
 };
 
 void Draw_pri1(sf::RenderWindow *janela){
-     janela->draw(char1.drawSP());
-     janela->draw(char2.drawSP());
-     janela->draw(char3.drawSP());
-     janela->draw(char4.drawSP());
-     janela->draw(char5.drawSP());
-     janela->draw(char6.drawSP());
-     janela->draw(char7.drawSP());
+     janela->draw(char1.sprite.drawSP());
+     janela->draw(char2.sprite.drawSP());
+     janela->draw(char3.sprite.drawSP());
+     janela->draw(char4.sprite.drawSP());
+     janela->draw(char5.sprite.drawSP());
+     janela->draw(char6.sprite.drawSP());
+     janela->draw(char7.sprite.drawSP());
 
 };

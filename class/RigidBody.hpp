@@ -6,6 +6,8 @@ class RigidBody:public Node2D{
 		// Variavel------------------------------
 		// Se vai ser capaz de colidir
 		bool colideON;
+		// Cria classe sprite
+		Char sprite;
 
 		Colision2D colision;
 		// Function -----------------------------
@@ -64,7 +66,7 @@ inline void::RigidBody::MoveAndSlide(float acelerationX,float acelerationY){
 
 // Instancia a imagen, a posição e a velocidade
 RigidBody::RigidBody(std::string texture_path,float posX,float posY){
-	setSpriteTexture(texture_path);
+	sprite.setSpriteTexture(texture_path);
 	setPosition(posX,posY);
 	colideON=true;
 }
