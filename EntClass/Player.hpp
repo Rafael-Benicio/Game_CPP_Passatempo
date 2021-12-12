@@ -59,6 +59,7 @@ void Player::hardColision(Box *boxArray, int boxArrayLength){
 // Valores que seram atualizando internamente a cada chamada
 void Player::processElements(){
 	setPosition(position.x+aceleration*vector_move.x,position.y+aceleration*vector_move.y);
+	setPosition(position.x,position.y+1);
 	colision.setPositionColide(position.x,position.y,position.x+proportion.width,position.y+proportion.height);
 }
 // Instancia a imagen, a posição e a velocidade

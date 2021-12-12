@@ -49,7 +49,6 @@ void RigidBody::hardColision(Box *boxArray, int boxArrayLength){
 
 			setPosition((position.x+resetPositionX),(position.y+resetPositionY));
 
-			break;
         }
     }
 }

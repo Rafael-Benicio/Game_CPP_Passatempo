@@ -5,6 +5,7 @@
 # include "class/Struct_Proportion.hpp"
 # include "class/Camera2D.hpp"
 # include "class/Char.hpp"
+# include "class/Colision.hpp"
 # include "class/RigidBody.hpp"
 # include "EntClass/Player.hpp"
 # include "EntClass/Tile.hpp"
@@ -15,15 +16,23 @@
 #define rect 8
 
 // Criar Char
-Player char1(imgs[0],0,0,1);
-RigidBody char2(imgs[0],8,20);
-RigidBody char3(imgs[0],0,20);
+Player char1(imgs[0],8,0,1);
+RigidBody char2(imgs[1],8*1,20);
+RigidBody char3(imgs[1],8*2,20);
+RigidBody char4(imgs[1],8*3,20);
+RigidBody char5(imgs[1],8*4,20);
+RigidBody char6(imgs[1],8*5,20);
+RigidBody char7(imgs[1],8*6,20);
 
 // Cria array de colisão
-Box colisionArray[3]={
+Box colisionArray[7]={
      char1.colision.point,
      char2.colision.point,
      char3.colision.point,
+     char4.colision.point,
+     char5.colision.point,
+     char6.colision.point,
+     char7.colision.point,
 };
 
 int colisionArrayLength=sizeof(colisionArray)/16;
@@ -82,12 +91,26 @@ void Update(sf::RenderWindow *janela){
      char1.processElements();
      char2.processElements();
      char3.processElements();
+     char4.processElements();
+     char5.processElements();
+     char6.processElements();
+     char7.processElements();
 
      colisionArray[0]=char1.colision.point;
      colisionArray[1]=char2.colision.point;
      colisionArray[2]=char3.colision.point;
+     colisionArray[3]=char4.colision.point;
+     colisionArray[4]=char5.colision.point;
+     colisionArray[5]=char6.colision.point;
+     colisionArray[6]=char7.colision.point;
      
      char1.hardColision(colisionArray,colisionArrayLength);
+     char2.hardColision(colisionArray,colisionArrayLength);
+     char3.hardColision(colisionArray,colisionArrayLength);
+     char4.hardColision(colisionArray,colisionArrayLength);
+     char5.hardColision(colisionArray,colisionArrayLength);
+     char6.hardColision(colisionArray,colisionArrayLength);
+     char7.hardColision(colisionArray,colisionArrayLength);
 
 }
 
@@ -100,5 +123,9 @@ void Draw_pri1(sf::RenderWindow *janela){
      janela->draw(char1.drawSP());
      janela->draw(char2.drawSP());
      janela->draw(char3.drawSP());
+     janela->draw(char4.drawSP());
+     janela->draw(char5.drawSP());
+     janela->draw(char6.drawSP());
+     janela->draw(char7.drawSP());
 
 };
