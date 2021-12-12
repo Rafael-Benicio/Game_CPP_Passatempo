@@ -65,6 +65,7 @@ void Player::processElements(){
 	setPosition(position.x+aceleration*vector_move.x,position.y+aceleration*vector_move.y);
 	setPosition(position.x,position.y+1);
 	colision.setPositionColide(position.x,position.y);
+	sprite.setPositionChar(position.x,position.y);
 }
 // Instancia a imagen, a posição e a velocidade
 Player::Player(std::string texture_path,float posX,float posY,float velocity){

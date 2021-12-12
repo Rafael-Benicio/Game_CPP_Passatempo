@@ -56,6 +56,15 @@ int main(){
      // Configura a tela
      sf::RenderWindow window(sf::VideoMode(720, 480), "Passa tempo");
      window.setFramerateLimit(60);
+
+     char1.colision.setProportion(8,8);
+     char2.colision.setProportion(8,8);
+     char3.colision.setProportion(8,8);
+     char4.colision.setProportion(8,8);
+     char5.colision.setProportion(8,8);
+     char6.colision.setProportion(8,8);
+     char7.colision.setProportion(8,8);
+
      // Loop do jogo
      while (window.isOpen()){
           // Variavel contendo os Eventos
@@ -116,16 +125,15 @@ void Update(sf::RenderWindow *janela){
 
 
 void Draw_pri2(sf::RenderWindow *janela){
-     
-};
-
-void Draw_pri1(sf::RenderWindow *janela){
-     janela->draw(char1.sprite.drawSP());
      janela->draw(char2.sprite.drawSP());
      janela->draw(char3.sprite.drawSP());
      janela->draw(char4.sprite.drawSP());
      janela->draw(char5.sprite.drawSP());
      janela->draw(char6.sprite.drawSP());
      janela->draw(char7.sprite.drawSP());
+};
+
+void Draw_pri1(sf::RenderWindow *janela){
+     janela->draw(char1.sprite.drawSP());
 
 };
