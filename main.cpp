@@ -8,7 +8,6 @@
 # include "class/Colision.hpp"
 # include "class/RigidBody.hpp"
 # include "EntClass/Player.hpp"
-# include "EntClass/Tile.hpp"
 # include "vars/imgs.hpp"
 
 #define windowCol 20

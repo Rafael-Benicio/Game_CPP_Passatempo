@@ -54,7 +54,7 @@ void RigidBody::hardColision(Box *boxArray, int boxArrayLength){
 }
 // Valores que seram atualizando internamente a cada chamada
 void RigidBody::processElements(){
-	colision.setPositionColide(position.x,position.y,position.x+proportion.width,position.y+proportion.height);
+	colision.setPositionColide(position.x,position.y,proportion.width,proportion.height);
 }
 
 // Adiministra o deslocamento do objeto

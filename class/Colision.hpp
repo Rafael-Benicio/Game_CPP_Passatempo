@@ -30,10 +30,10 @@ class Colision2D:public Char{
 
 		// Configura as posições
 		void setPositionColide(float Ox,float Oy,float Ow,float Oh){
-				point.topX=Ox+margin.topX;
-				point.topY=Oy+margin.topY;
-				point.bottomX=Ow+margin.bottomX;
-				point.bottomY=Oh+margin.bottomY;
+				point.topX=position.x+margin.topX+Ox;
+				point.topY=position.y+margin.topY+Oy;
+				point.bottomX=position.x+margin.bottomX+Ow+Ox;
+				point.bottomY=position.y+margin.bottomY+Oh+Oy;
 		};
 };
 
