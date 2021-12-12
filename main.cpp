@@ -3,8 +3,8 @@
 # include "class/Struct_Box.hpp"
 # include "class/Struct_Position.hpp"
 # include "class/Struct_Proportion.hpp"
-# include "class/Camera2D.hpp"
 # include "class/Node2D.hpp"
+# include "class/Camera2D.hpp"
 # include "class/Char.hpp"
 # include "class/Colision.hpp"
 # include "class/RigidBody.hpp"
@@ -92,7 +92,7 @@ void Update(sf::RenderWindow *janela){
      // Limpa a tela
      janela->clear(sf::Color::Blue);
      // define onde a janela vai ficar
-     camera.centroCamera(char1.position.x,char1.position.y);
+     camera.setCentroCamera(char1.position.x,char1.position.y);
      // Define onde a camera vai ficar
      janela->setView(camera.mainCamera());
      // Updates
